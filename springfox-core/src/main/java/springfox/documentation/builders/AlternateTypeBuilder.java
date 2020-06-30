@@ -94,7 +94,8 @@ public class AlternateTypeBuilder {
         .name(fullyQualifiedClassName)
         .annotateType(annotations);
     for (AlternateTypePropertyBuilder each : properties) {
-      builder = each.apply(builder);
+      if(each.getClazz() != null)
+        builder = each.apply(builder);
     }
     return builder.make()
                   .load(getClass().getClassLoader(), ClassLoadingStrategy.Default.WRAPPER)

@@ -157,4 +157,6 @@ public class AlternateTypePropertyBuilder {
         .defineMethod("get" + capitalize(name), clazz, Visibility.PUBLIC)
         .intercept(FieldAccessor.ofField(name));
   }
+
+  public Class<?> getClazz() {return this.clazz;}
 }
